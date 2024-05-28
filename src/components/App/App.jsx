@@ -1,17 +1,16 @@
-import axios from "axios"
+
 import { useEffect, useState } from "react"
 import SearchBar from "../SearchBar/SearchBar"
 import ImageGallery from "../ImageGallery/ImageGallery";
+import getImages from "../../images-api"
 
 export default function App() {
     const [images, setImages] = useState([]);
 
     useEffect(() => {
-        async function fetchImages(){
-            const response = await  axios.get(
-                collections/:id/related
-            ) 
-            setImages(response.data.hits);
+        async function fetchImages() {
+            const fetchImages = await getImages();
+            setImages(fetchImages);
         }
         fetchImages()
     }, []);
@@ -19,7 +18,7 @@ export default function App() {
     return (
         <div>
             <SearchBar />
-            <ImageGallery items={images} />
+            {images.length > 0 && <ImageGallery items={images} />}
         </div>
     )
 }
