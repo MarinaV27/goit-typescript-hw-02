@@ -19,7 +19,7 @@ export default function SearchBar({ onSubmit }) {
                             autoComplete="off"
                             autoFocus
                             placeholder="Search images and photos"
-                            onClick={handleInputClick}
+                            onClick={handleLoadMore}
                         />
                         <button type="submit">Search</button>
                     </form>

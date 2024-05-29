@@ -7,7 +7,7 @@ export const getImages = async (topic, currentPage) => {
         params: {
             query: topic,
             page: currentPage,
-            per_page: 12,
+            per_page: 9,
 
         }
     });
