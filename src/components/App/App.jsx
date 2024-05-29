@@ -4,6 +4,7 @@ import SearchBar from "../SearchBar/SearchBar"
 import ImageGallery from "../ImageGallery/ImageGallery";
 import getImages from "../../images-api"
 import Loader from "../Loader/Loader";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 
 export default function App() {
@@ -16,10 +17,11 @@ export default function App() {
             try {
                 setIsLoading(true);
                 const fetchImages = await getImages();
-                setIsLoading(false);
                 setImages(fetchImages);
-            } caches {
-
+            } catch (error) {
+                setIsError(true);
+            } finally {
+                setIsLoading(false);
             }
         }
         fetchImages()
@@ -27,7 +29,7 @@ export default function App() {
 
     return (
         <div>
-            <SearchBar />
+            <SearchBar onSubmit={} />
             {images.length > 0 && <ImageGallery items={images} />}
             {isError && <ErrorMessage />}
             {isLoading && <Loader />}
