@@ -1,4 +1,5 @@
 import { Field, Formik, Form } from 'formik';
+
 export default function SearchBar({ onSubmit }) {
 
     return (
@@ -14,9 +15,11 @@ export default function SearchBar({ onSubmit }) {
                     <form>
                         <Field
                             type="text"
-                            autocomplete="off"
-                            autofocus
+                            name="query"
+                            autoComplete="off"
+                            autoFocus
                             placeholder="Search images and photos"
+                            onClick={handleInputClick}
                         />
                         <button type="submit">Search</button>
                     </form>

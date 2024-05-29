@@ -16,6 +16,7 @@ export default function App() {
         async function fetchImages() {
             try {
                 setIsLoading(true);
+                setIsError(false)
                 const fetchImages = await getImages();
                 setImages(fetchImages);
             } catch (error) {
