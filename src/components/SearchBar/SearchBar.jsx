@@ -1,6 +1,8 @@
 import { Field, Formik, Form } from 'formik';
+//import { useState } from 'react';
 
 export default function SearchBar({ onSubmit }) {
+   // const [query, setQuery] = useState ("")
 
     return (
         <Formik
@@ -19,7 +21,7 @@ export default function SearchBar({ onSubmit }) {
                             autoComplete="off"
                             autoFocus
                             placeholder="Search images and photos"
-                            onClick={handleLoadMore}
+                    
                         />
                         <button type="submit">Search</button>
                     </form>

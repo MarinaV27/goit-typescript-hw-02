@@ -14,6 +14,7 @@ export default function App() {
     const [isError, setIsError] = useState(false);
     const [page, setPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState('');
+    const [totalPage] = useState(12);
 
     useEffect(() => {
         if (searchQuery.trim() === "") {
@@ -23,7 +24,7 @@ export default function App() {
             try {
                 setIsLoading(true);
                 setIsError(false);
-                const fetchImages = await getImages(searchQuery, page);
+                const fetchImages = await getImages(searchQuery, page, totalPage);
                 setImages((prevState) => [...prevState, ...fetchImages]);
             } catch (error) {
                 setIsError(true);
@@ -32,7 +33,7 @@ export default function App() {
             }
         }
         fetchImages()
-    }, [page, searchQuery]);
+    }, [page, searchQuery, totalPage]);
 
     const handlerSearch = async (topic) => {
         setSearchQuery(topic);
@@ -41,7 +42,7 @@ export default function App() {
     }
 
     const handleLoadMore = async () => {
-        setPage(page + 1);
+        setPage(totalPage => totalPage + 1);
     };
 
     return (
