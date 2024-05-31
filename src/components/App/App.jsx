@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react"
 import SearchBar from "../SearchBar/SearchBar"
 import ImageGallery from "../ImageGallery/ImageGallery";
-import getImages from "../../images-api"
+import {getImages} from "../../images-api"
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
