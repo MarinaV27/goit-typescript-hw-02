@@ -21,7 +21,7 @@ export default function SearchBar({ onSubmit }) {
             className={css.input}
             type="text"
             value={query}
-            onChange={e => setQuery(e.target.value)}
+            onChange={event => setQuery(event.target.value)}
             autoFocus
             autoComplete="off"
             placeholder="Search images and photos"

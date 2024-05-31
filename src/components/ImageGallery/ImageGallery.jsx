@@ -9,14 +9,7 @@ export default function ImageGallery({ items }) {
                     <li className={css.list} key={items.id}>
                         <ImageCard image={item} />
                     </li>
-                )
-            ) 
-            }
-            <li>
-                <div>
-                    <img src="" alt="" />
-                </div>
-            </li>
+                ))}
         </ul>
     )
 }
