@@ -3,9 +3,9 @@ import css from "../ImageGallery/ImageGallery.module.css";
 
 export default function ImageGallery({ items, onImageClick }) {
   return (
-    <ul className={css.menuList}>
+    <ul className={css.list}>
       {items.map((item) => (
-        <li className={css.list} key={items.id}>
+        <li className={css.item} key={item.id}>
           <ImageCard image={item} onClick={() => onImageClick(item)} />
         </li>
       ))}
