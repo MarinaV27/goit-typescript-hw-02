@@ -1,6 +1,7 @@
 import { useState } from "react";
 import css from "./SearchBar.module.css";
 import { toast } from "react-hot-toast";
+import { BsSearch } from "react-icons/bs";
 
 export default function SearchBar({ onSubmit }) {
   const [query, setQuery] = useState("");
@@ -18,7 +19,9 @@ export default function SearchBar({ onSubmit }) {
   return (
     <header className={css.header}>
       <form className={css.form} onSubmit={handleSubmit}>
-        <button className={css.btn} type="submit"></button>
+        <button className={css.btn} type="submit">
+          <BsSearch />
+        </button>
         <input
           className={css.input}
           type="text"
