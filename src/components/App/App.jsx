@@ -6,6 +6,7 @@ import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import { Toaster } from "react-hot-toast";
+import ImageModal from "../ImageModal/ImageModal";
 
 export default function App() {
   const [images, setImages] = useState([]);
@@ -13,6 +14,7 @@ export default function App() {
   const [isError, setIsError] = useState(false);
   const [page, setPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
+  const [modalImage, setModalImage] = useState(null);
   const [totalPage] = useState(12);
 
   useEffect(() => {
@@ -54,6 +56,9 @@ export default function App() {
         <LoadMoreBtn onClick={handleLoadMore} />
       )}
       {isLoading && <Loader />}
+      {modalImage && (
+        <ImageModal image={modalImage} onclose={() => setModalImage(null)} />
+      )}
     </div>
   );
 }
