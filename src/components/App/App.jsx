@@ -50,14 +50,16 @@ export default function App() {
     <div>
       <SearchBar onSubmit={handlerSearch} />
       <Toaster />
-      {images.length > 0 && <ImageGallery items={images} />}
+      {images.length > 0 && (
+        <ImageGallery items={images} onImageClick={setModalImage} />
+      )}
       {isError && <ErrorMessage />}
       {images.length > 0 && !isLoading && (
         <LoadMoreBtn onClick={handleLoadMore} />
       )}
       {isLoading && <Loader />}
       {modalImage && (
-        <ImageModal image={modalImage} onclose={() => setModalImage(null)} />
+        <ImageModal image={modalImage} onСlose={() => setModalImage(null)} />
       )}
     </div>
   );
