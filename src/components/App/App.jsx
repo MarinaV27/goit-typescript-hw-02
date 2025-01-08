@@ -38,7 +38,7 @@ export default function App() {
 
   const handlerSearch = async (topic) => {
     setSearchQuery(topic);
-    setPage();
+    setPage(1);
     setImages([]);
   };
 
