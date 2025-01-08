@@ -38,28 +38,28 @@ export default function App() {
 
   const handlerSearch = async (topic) => {
     setSearchQuery(topic);
-    setPage(1);
+    setPage();
     setImages([]);
   };
 
   const handleLoadMore = async () => {
-    setPage((totalPage) => totalPage + 1);
+    setPage((prevPage) => prevPage + 1);
   };
 
   return (
     <div>
       <SearchBar onSubmit={handlerSearch} />
       <Toaster />
+      {isError && <ErrorMessage />}
       {images.length > 0 && (
         <ImageGallery items={images} onImageClick={setModalImage} />
       )}
-      {isError && <ErrorMessage />}
+      {isLoading && <Loader />}
       {images.length > 0 && !isLoading && (
         <LoadMoreBtn onClick={handleLoadMore} />
       )}
-      {isLoading && <Loader />}
       {modalImage && (
-        <ImageModal image={modalImage} onСlose={() => setModalImage(null)} />
+        <ImageModal image={modalImage} onClose={() => setModalImage(null)} />
       )}
     </div>
   );
