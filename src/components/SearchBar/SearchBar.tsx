@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import css from "./SearchBar.module.css";
 import { toast } from "react-hot-toast";
 import { TbSearch } from "react-icons/tb";
+import { F } from "vite/dist/node/types.d-aGj9QkWt";
 
 export default function SearchBar({ onSubmit }) {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState<string>("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (query.trim() === "") {
       toast.error("This didn't work.");

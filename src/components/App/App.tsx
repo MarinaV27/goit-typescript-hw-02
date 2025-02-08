@@ -13,9 +13,9 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [page, setPage] = useState(1);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [modalImage, setModalImage] = useState(null);
-  const [totalPage] = useState(12);
+  const [totalPage] = useState<number>(12);
 
   useEffect(() => {
     if (searchQuery.trim() === "") {
