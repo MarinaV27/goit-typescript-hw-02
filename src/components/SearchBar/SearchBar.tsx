@@ -2,9 +2,13 @@ import { useState, FormEvent } from "react";
 import css from "./SearchBar.module.css";
 import { toast } from "react-hot-toast";
 import { TbSearch } from "react-icons/tb";
-import { F } from "vite/dist/node/types.d-aGj9QkWt";
+import { F, S } from "vite/dist/node/types.d-aGj9QkWt";
 
-export default function SearchBar({ onSubmit }) {
+interface SearchBarProps {
+  onSubmit: (query: string) => void;
+}
+
+export default function SearchBar({ onSubmit }: SearchBarProps) {
   const [query, setQuery] = useState<string>("");
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
