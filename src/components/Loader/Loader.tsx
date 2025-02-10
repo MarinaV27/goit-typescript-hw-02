@@ -1,19 +1,21 @@
 import { Audio } from "react-loader-spinner";
 import css from "./Leader.module.css";
+import React from "react";
 
-export default function Loader() {
+
+const Loader: React.FC = () => {
+  
   return (
     <div className={css.loadbox}>
       <Audio
         height="80"
         width="80"
-        radius="9"
         color="green"
         ariaLabel="loading"
-        wrapperStyle
-        wrapperClass
+        
       />
       <p>Loading data, please wait...</p>
     </div>
   );
 }
+export default Loader;
