@@ -7,14 +7,15 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import { Toaster } from "react-hot-toast";
 import ImageModal from "../ImageModal/ImageModal";
+import { Image } from "../../types";
 
 export default function App() {
-  const [images, setImages] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [page, setPage] = useState(1);
+  const [images, setImages] = useState<Image[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(1);
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [modalImage, setModalImage] = useState(null);
+  const [modalImage, setModalImage] = useState<Image | null>(null);
   const [totalPage] = useState<number>(12);
 
   useEffect(() => {
@@ -36,7 +37,7 @@ export default function App() {
     fetchImages();
   }, [page, searchQuery, totalPage]);
 
-  const handlerSearch = async (topic) => {
+  const handlerSearch = async(topic:string) => {
     setSearchQuery(topic);
     setPage(1);
     setImages([]);
