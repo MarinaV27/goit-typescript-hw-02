@@ -1,6 +1,12 @@
 import css from "./ImageCard.module.css"
+import { Image } from "../../types";
 
-export default function ImageCard({ image, onClick }) {
+interface ImageCardProps {
+    image: Image;
+    onClick: () => void;
+}
+
+export default function ImageCard({ image, onClick }: ImageCardProps) {
     return (
         <div className={css.container} onClick={onClick}>
             <img 
